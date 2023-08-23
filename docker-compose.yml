@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  #app:
+   # depends_on:
+    #  - db
+    #build:
+     # context: .
+      #dockerfile: Dockerfile
+    #image: mes-festa-app-docker
+    #container_name: mes_festa_app
+    #restart: always
+    #ports:
+    #  - "${APP_PORT}:${APP_PORT}"
+    #environment:
+    #  - APP_PORT:${APP_PORT}
+    #networks:
+    #  - mes_festa_network
+  db:
+    image: postgres:15.4
+    restart: always
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_PORT: ${DB_PORT}
+    container_name: mes_festa_db
+    volumes:
+      - mes_festa_volume:/var/lib/postgresql/data
+    networks:
+      - mes_festa_network
+
+volumes:
+  mes_festa_volume:
+
+networks:
+  mes_festa_network:
