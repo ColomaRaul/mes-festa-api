@@ -26,14 +26,9 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_HOST: ${DB_HOST}
       POSTGRES_PORT: ${DB_PORT}
-    container_name: mes_festa_db
+    container_name: mes-festa-api-db
     volumes:
-      - mes_festa_volume:/var/lib/postgresql/data
-    networks:
-      - mes_festa_network
+      - db-volume:/var/lib/postgresql/data
 
 volumes:
-  mes_festa_volume:
-
-networks:
-  mes_festa_network:
+  db-volume:
