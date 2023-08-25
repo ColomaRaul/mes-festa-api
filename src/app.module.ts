@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './application/controllers/app.controller';
-import { AppService } from './domain/services/app.service';
+import { DomainModule } from './domain/domain.module';
+import { ApplicationModule } from './application/application.module';
+import { InfrastructureModule } from './infrastructure/infrastructure.module';
 
 @Module({
   imports: [
@@ -16,9 +17,10 @@ import { AppService } from './domain/services/app.service';
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       synchronize: true
-    })
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    }),
+    DomainModule,
+    ApplicationModule,
+    InfrastructureModule
+  ]
 })
 export class AppModule {}
