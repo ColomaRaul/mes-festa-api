@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { EntitiesModule } from './entities/entities.module';
 import { AppService } from './services/app.service';
+import { OrganizationService } from "./services/organization.service";
 
 
 @Module({
@@ -8,7 +9,8 @@ import { AppService } from './services/app.service';
         EntitiesModule
     ],
     providers: [
-        AppService
+        AppService,
+        OrganizationService
     ]
 })
 export class DomainModule {}

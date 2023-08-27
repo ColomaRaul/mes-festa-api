@@ -1,11 +1,13 @@
-import { Controller, Get } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
+import { OrganizationService } from "src/domain/services/organization.service";
+import { CreateOrganizationDto } from '../../domain/entities/value_object/create-organization.dto';
 
-@Controller()
+@Controller('organization')
 export class OrganizationController {
-    constructor() {}
+    constructor(private readonly organizationService: OrganizationService) {}
 
-    @Get('/test')
-    getOrganization(): string {
-        return 'hola desde la organización';
+    @Post()
+    create(@Body() createOrganizationDto: CreateOrganizationDto) {
+        return this.organizationService.create(createOrganizationDto);
     }
 }
