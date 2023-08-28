@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DomainModule } from './domain/domain.module';
-import { ApplicationModule } from './application/application.module';
-import { InfrastructureModule } from './infrastructure/infrastructure.module';
+import { Organization } from './domain/entities/organization.entity';
+import { OrganizationService } from './domain/services/organization.service';
+import { AppService } from './domain/services/app.service';
+import { AppController } from './application/controllers/app.controller';
+import { OrganizationController } from './application/controllers/organization.controller';
 
 @Module({
   imports: [
@@ -18,9 +20,20 @@ import { InfrastructureModule } from './infrastructure/infrastructure.module';
       autoLoadEntities: true,
       synchronize: true
     }),
-    DomainModule,
-    ApplicationModule,
-    InfrastructureModule
+    TypeOrmModule.forFeature([
+      Organization
+    ])
+  ],
+  controllers: [
+    AppController,
+    OrganizationController
+  ],
+  providers: [
+    AppService,
+    OrganizationService
+  ],
+  exports: [
+    OrganizationService
   ]
 })
 export class AppModule {}
