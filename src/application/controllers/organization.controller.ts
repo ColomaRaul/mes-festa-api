@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { OrganizationService } from "src/domain/services/organization.service";
-import { CreateOrganizationDto } from '../../domain/entities/value_object/create-organization.dto';
+import { CreateOrganizationDto } from '../../domain/dtos/create-organization.dto';
 
 @Controller('organization')
 export class OrganizationController {

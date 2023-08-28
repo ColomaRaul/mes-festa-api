@@ -6,6 +6,9 @@ import { OrganizationService } from './domain/services/organization.service';
 import { AppService } from './domain/services/app.service';
 import { AppController } from './application/controllers/app.controller';
 import { OrganizationController } from './application/controllers/organization.controller';
+import { UserService } from './domain/services/user.service';
+import { UserController } from './application/controllers/user.controller';
+import { User } from './domain/entities/user.entity';
 
 @Module({
   imports: [
@@ -21,16 +24,19 @@ import { OrganizationController } from './application/controllers/organization.c
       synchronize: true
     }),
     TypeOrmModule.forFeature([
-      Organization
+      Organization,
+      User
     ])
   ],
   controllers: [
     AppController,
-    OrganizationController
+    OrganizationController,
+    UserController
   ],
   providers: [
     AppService,
-    OrganizationService
+    OrganizationService,
+    UserService
   ],
   exports: [
     OrganizationService
