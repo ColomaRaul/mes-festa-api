@@ -1,18 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Organization } from './domain/entities/organization.entity';
-import { OrganizationService } from './domain/services/organization.service';
-import { AppService } from './domain/services/app.service';
-import { AppController } from './application/controllers/app.controller';
-import { OrganizationController } from './application/controllers/organization.controller';
-import { UserService } from './domain/services/user.service';
-import { UserController } from './application/controllers/user.controller';
-import { User } from './domain/entities/user.entity';
-import { PassportModule } from '@nestjs/passport';
-import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './domain/strategies/jwt.strategy';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { UserModule } from './user/user.module';
+import { OrganizationModule } from './organization/organization.module';
 
 @Module({
   imports: [
@@ -29,40 +20,8 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
       synchronize: true,
       namingStrategy: new SnakeNamingStrategy()
     }),
-    TypeOrmModule.forFeature([
-      Organization,
-      User
-    ]),
-    PassportModule.register({defaultStrategy: 'jwt'}),
-    JwtModule.registerAsync({
-      imports: [ ConfigModule ],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => {
-        return {
-          secret: configService.get('JWT_SECRET'),
-          signOptions: {
-            expiresIn: '2h'
-          }
-        }
-      }
-    })
-  ],
-  controllers: [
-    AppController,
-    OrganizationController,
-    UserController
-  ],
-  providers: [
-    AppService,
-    OrganizationService,
-    UserService,
-    JwtStrategy
-  ],
-  exports: [
-    OrganizationService,
-    JwtStrategy,
-    PassportModule,
-    JwtModule
+    UserModule,
+    OrganizationModule
   ]
 })
 export class AppModule {}

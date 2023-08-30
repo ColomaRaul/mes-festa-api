@@ -1,12 +1,12 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { GetUser } from "src/domain/decorators/get-user.decorator";
-import { RoleProtected } from "src/domain/decorators/role-protected.decorator";
-import { CreateUserDto, LoginUserDto } from "src/domain/dtos";
-import { User } from "src/domain/entities/user.entity";
-import { UserRoleGuard } from "src/domain/guards/user-role.guard";
-import { ValidRoles } from "src/domain/interfaces";
-import { UserService } from "src/domain/services/user.service";
+import { GetUser } from "src/user/decorators/get-user.decorator";
+import { RoleProtected } from "./decorators/role-protected.decorator";
+import { CreateUserDto, LoginUserDto } from "src/user/dtos";
+import { User } from "src/user/entities/user.entity";
+import { UserRoleGuard } from "src/user/guards/user-role.guard";
+import { ValidRoles } from "./interfaces";
+import { UserService } from "./user.service";
 
 @Controller('user')
 export class UserController {
@@ -23,7 +23,7 @@ export class UserController {
     }
 
     @Get('testing')
-    @RoleProtected(ValidRoles.superAdmin)
+    @RoleProtected(ValidRoles.user)
     @UseGuards(AuthGuard(), UserRoleGuard)
     testing(
         @GetUser() user: User,
