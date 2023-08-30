@@ -1,5 +1,5 @@
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Characteristic } from "../interfaces/characteristic.inteface";
+import { Characteristic } from "../interfaces/";
 
 
 @Entity('user')
