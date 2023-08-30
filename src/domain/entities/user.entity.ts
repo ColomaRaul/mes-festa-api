@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Characteristic } from "../interfaces/characteristic.inteface";
 
 
@@ -73,4 +73,18 @@ export class User {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    @BeforeInsert()
+    checkFieldsBeforeInsert() {
+        this.email = this.email.toLowerCase().trim();
+    }
+
+    @BeforeUpdate()
+    checkFieldsBeforeUpdate() {
+        this.checkFieldsBeforeInsert();
+    }
+
+    fullName(): string {
+        return `${this.name} ${this.surname}`;
+    }
 }

@@ -5,6 +5,8 @@ import { CreateUserDto, LoginUserDto } from "../dtos";
 import { User } from '../entities/user.entity';
 
 import * as bcrypt from 'bcrypt';
+import { JwtPayload } from '../interfaces/jwt-payload.interface';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UserService {
@@ -12,7 +14,8 @@ export class UserService {
 
     constructor(
         @InjectRepository(User)
-        private readonly userRepository: Repository<User>
+        private readonly userRepository: Repository<User>,
+        private readonly jwtService: JwtService
     ) {}
 
     async create(createUserDto: CreateUserDto) {
@@ -26,8 +29,10 @@ export class UserService {
             await this.userRepository.save(user);
             delete user.password;
 
-            return user;
-            // TODO: retornar el JWT de acceso
+            return {
+                ...user,
+                token: this.getJwtToken({id: user.id})
+            };
         } catch (error) {
             this.handleDBErrors(error);
         }
@@ -38,7 +43,7 @@ export class UserService {
 
         const user = await this.userRepository.findOne({
             where: {email},
-            select: {email: true, password: true}
+            select: {email: true, password: true, id: true}
         });
 
         if (!user)
@@ -47,9 +52,15 @@ export class UserService {
         if (!bcrypt.compareSync(password, user.password))
             throw new UnauthorizedException('Credentials are not valid (password)');
 
-        return user;
+        return {
+            ...user,
+            token: this.getJwtToken({id: user.id})
+        };
     }
 
+    private getJwtToken(payload: JwtPayload) {
+        return this.jwtService.sign(payload);
+    }
 
     private handleDBErrors(error: any): never {
         if (error.code === '23505')
