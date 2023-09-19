@@ -19,11 +19,11 @@ import { TransactionModule } from './transaction/transaction.module';
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       synchronize: true,
-      namingStrategy: new SnakeNamingStrategy()
+      namingStrategy: new SnakeNamingStrategy(),
     }),
     UserModule,
     OrganizationModule,
-    TransactionModule
-  ]
+    TransactionModule,
+  ],
 })
 export class AppModule {}

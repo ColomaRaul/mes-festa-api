@@ -8,30 +8,30 @@ import {
 
 @Entity()
 export class Transaction {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column('uuid')
-    userId: string;
+  @Column('uuid')
+  userId: string;
 
-    @Column('text')
-    typeTransaction: string;
+  @Column('text')
+  typeTransaction: string;
 
-    @Column('text')
-    typeFinancial: string;
-    
-    @Column('int')
-    amount: number;
+  @Column('text')
+  typeFinancial: string;
 
-    @Column('timestamp')
-    date: Date;
+  @Column('int')
+  amount: number;
 
-    @Column('text')
-    description: string;
+  @Column('timestamp')
+  date: Date;
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @Column('text')
+  description: string;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

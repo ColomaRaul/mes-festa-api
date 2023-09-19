@@ -1,4 +1,1 @@
-
-export class TransactionService {
-    
-}
+export class TransactionService {}
