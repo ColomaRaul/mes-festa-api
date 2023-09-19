@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { UserModule } from './user/user.module';
 import { OrganizationModule } from './organization/organization.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { OrganizationModule } from './organization/organization.module';
       namingStrategy: new SnakeNamingStrategy()
     }),
     UserModule,
-    OrganizationModule
+    OrganizationModule,
+    TransactionModule
   ]
 })
 export class AppModule {}
