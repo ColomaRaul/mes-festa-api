@@ -6,11 +6,8 @@ import { OrganizationController } from './organization.controller';
 import { OrganizationService } from './organization.service';
 
 @Module({
-    controllers: [OrganizationController],
-    providers: [OrganizationService],
-    imports: [
-        TypeOrmModule.forFeature([Organization]),
-        UserModule
-    ]
+  controllers: [OrganizationController],
+  providers: [OrganizationService],
+  imports: [TypeOrmModule.forFeature([Organization]), UserModule],
 })
 export class OrganizationModule {}
