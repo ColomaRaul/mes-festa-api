@@ -14,6 +14,12 @@ export class Transaction {
   @Column('uuid')
   userId: string;
 
+  @Column('uuid')
+  userCreatorId: string;
+
+  @Column('uuid')
+  organizationId: string;
+
   @Column('text')
   typeTransaction: string;
 

@@ -9,9 +9,6 @@ import {
 import { Characteristic } from '../interfaces';
 
 export class CreateUserDto {
-  @IsString()
-  organizationId: string;
-
   @IsEmail()
   email: string;
 
@@ -42,16 +39,9 @@ export class CreateUserDto {
 
   @IsString()
   @IsOptional()
-  memberSince: string;
-
-  @IsString()
-  @IsOptional()
   phone: string;
 
   @IsString()
   @IsOptional()
   dni: string;
-
-  @IsOptional()
-  characteristics: Characteristic[];
 }

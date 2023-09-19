@@ -1,90 +1,83 @@
-import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Characteristic } from "../interfaces/";
-
+import {
+  BeforeInsert,
+  BeforeUpdate,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Characteristic } from '../interfaces/';
 
 @Entity('user')
 export class User {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @Column('text', {
+    unique: true,
+  })
+  email: string;
 
-    @Column('uuid')
-    organizationId: string;
+  @Column('text', {
+    select: false,
+  })
+  password: string;
 
-    @Column('text', {
-        unique: true
-    })
-    email: string;
+  @Column('text')
+  name: string;
 
-    @Column('text', {
-        select: false
-    })
-    password: string;
+  @Column('text')
+  surname: string;
 
-    @Column('text')
-    name: string;
+  @Column('bool', {
+    default: true,
+  })
+  isActive: boolean;
 
-    @Column('text')
-    surname: string;
+  @Column('text', {
+    array: true,
+    default: ['user'],
+  })
+  roles: string[];
 
-    @Column('bool', {
-        default: true
-    })
-    isActive: boolean;
+  @Column('text', {
+    nullable: true,
+  })
+  address: string;
 
-    @Column('text', {
-        array: true,
-        default: ['user']
-    })
-    roles: string[];
+  @Column('timestamp', {
+    nullable: true,
+  })
+  birthday: Date;
 
-    @Column('text', {
-        nullable: true
-    })
-    address: string;
+  @Column('text', {
+    nullable: true,
+  })
+  phone: string;
 
-    @Column('timestamp', {
-        nullable: true
-    })
-    birthday: Date;
+  @Column('text', {
+    nullable: true,
+  })
+  dni: string;
 
-    @Column('timestamp', {
-        nullable: true
-    })
-    memberSince: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @Column('text', {
-        nullable: true
-    })
-    phone: string;
+  @UpdateDateColumn()
+  updatedAt: Date;
 
-    @Column('text', {
-        nullable: true
-    })
-    dni: string;
+  @BeforeInsert()
+  checkFieldsBeforeInsert() {
+    this.email = this.email.toLowerCase().trim();
+  }
 
-    @Column('jsonb', {
-        nullable: true
-    })
-    characteristics?: Characteristic[];
+  @BeforeUpdate()
+  checkFieldsBeforeUpdate() {
+    this.checkFieldsBeforeInsert();
+  }
 
-    @CreateDateColumn()
-    created_at: Date;
-
-    @UpdateDateColumn()
-    updated_at: Date;
-
-    @BeforeInsert()
-    checkFieldsBeforeInsert() {
-        this.email = this.email.toLowerCase().trim();
-    }
-
-    @BeforeUpdate()
-    checkFieldsBeforeUpdate() {
-        this.checkFieldsBeforeInsert();
-    }
-
-    fullName(): string {
-        return `${this.name} ${this.surname}`;
-    }
+  fullName(): string {
+    return `${this.name} ${this.surname}`;
+  }
 }

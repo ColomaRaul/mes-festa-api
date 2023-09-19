@@ -6,6 +6,12 @@ export class CreateTransactionDto {
   @IsUUID()
   userId: string;
 
+  @IsUUID()
+  userCreatorId: string;
+
+  @IsUUID()
+  organizationId: string;
+
   @IsEnum(TypeTransaction)
   typeTransaction: string;
 
