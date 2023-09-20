@@ -42,3 +42,4 @@ yarn run test:cov
 4. Update the environment values
 5. Start the database ```docker-compose up -d```
 6. Launch the app in dev mode ```yarn start:dev```
+7. Execute seed for get dummy data ```localhost:4000/api/seed ```
