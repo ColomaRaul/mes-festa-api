@@ -7,7 +7,6 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Characteristic } from '../interfaces/';
 
 @Entity('user')
 export class User {

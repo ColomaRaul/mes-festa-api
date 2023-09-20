@@ -5,6 +5,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { UserModule } from './user/user.module';
 import { OrganizationModule } from './organization/organization.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { SeedModule } from './seed/seed.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { TransactionModule } from './transaction/transaction.module';
     UserModule,
     OrganizationModule,
     TransactionModule,
+    SeedModule,
   ],
 })
 export class AppModule {}

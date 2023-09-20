@@ -29,6 +29,6 @@ import { UserOrganization } from './entities/user-organization.entity';
       },
     }),
   ],
-  exports: [TypeOrmModule, JwtStrategy, PassportModule, JwtModule],
+  exports: [TypeOrmModule, JwtStrategy, PassportModule, JwtModule, UserService],
 })
 export class UserModule {}

@@ -85,6 +85,29 @@ export class UserService {
     }
   }
 
+  async deleteAllUsers() {
+    const query = this.userRepository.createQueryBuilder('user');
+
+    try {
+      return await query.delete().where({}).execute();
+    } catch (error) {
+      throw new InternalServerErrorException('Cant delete all users');
+    }
+  }
+
+  async deleteAllUsersOrganization() {
+    const query =
+      this.userOrganizationRepository.createQueryBuilder('user-organization');
+
+    try {
+      return await query.delete().where({}).execute();
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Cant delete all users organization',
+      );
+    }
+  }
+
   private getJwtToken(payload: JwtPayload) {
     return this.jwtService.sign(payload);
   }

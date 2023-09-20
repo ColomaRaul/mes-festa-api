@@ -29,4 +29,14 @@ export class TransactionService {
       throw new InternalServerErrorException('Transaction cannot be created!');
     }
   }
+
+  async deleteAllTransactions() {
+    const query = this.transactionRepository.createQueryBuilder('transaction');
+
+    try {
+      return await query.delete().where({}).execute();
+    } catch (error) {
+      throw new InternalServerErrorException('Cant delete all transactions');
+    }
+  }
 }

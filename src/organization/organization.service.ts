@@ -29,4 +29,15 @@ export class OrganizationService {
       throw new InternalServerErrorException('HELP!');
     }
   }
+
+  async deleteAllOrganizations() {
+    const query =
+      this.organizationRepository.createQueryBuilder('organization');
+
+    try {
+      return await query.delete().where({}).execute();
+    } catch (error) {
+      throw new InternalServerErrorException('Cant delete all organizations');
+    }
+  }
 }
