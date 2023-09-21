@@ -1,9 +1,17 @@
-import { IsEnum, IsInt, IsString, IsUUID, MinLength } from 'class-validator';
+import {
+  IsEnum,
+  IsInt,
+  IsOptional,
+  IsString,
+  IsUUID,
+  MinLength,
+} from 'class-validator';
 import { TypeTransaction } from '../interfaces/type-transaction.interface';
 import { Transform } from 'class-transformer';
 
 export class CreateTransactionDto {
   @IsUUID()
+  @IsOptional()
   userId: string;
 
   @IsUUID()

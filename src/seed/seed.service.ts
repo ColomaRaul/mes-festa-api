@@ -4,6 +4,8 @@ import { OrganizationService } from '../organization/organization.service';
 import { TransactionService } from '../transaction/transaction.service';
 import { SEED_ORGANIZATION } from './data/organization.seed';
 import { SEED_USER } from './data/user.seed';
+import { SEED_USER_ORGANIZATION } from './data/user-organization.seed';
+import { SEED_TRANSACTION } from './data/transaction.seed';
 
 @Injectable()
 export class SeedService {
@@ -17,6 +19,8 @@ export class SeedService {
 
     await this.insertNewOrganizations();
     await this.insertNewUsers();
+    await this.insertNewUsersOrganization();
+    await this.insertNewTransactions();
 
     return 'Seed executed';
   }
@@ -40,6 +44,24 @@ export class SeedService {
     });
 
     await Promise.all(insertPromises);
+  }
+
+  private async insertNewUsersOrganization() {
+    const seedUserOrganization = SEED_USER_ORGANIZATION;
+    const insertPromises = [];
+    seedUserOrganization.forEach((userOrganization) => {
+      insertPromises.push(
+        this.userService.addUserOrganization(userOrganization),
+      );
+    });
+  }
+
+  private async insertNewTransactions() {
+    const seedTransaction = SEED_TRANSACTION;
+    const insertPromises = [];
+    seedTransaction.forEach((transaction) => {
+      insertPromises.push(this.transactionService.create(transaction));
+    });
   }
 
   private async deleteTables() {

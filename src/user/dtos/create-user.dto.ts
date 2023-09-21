@@ -6,7 +6,6 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { Characteristic } from '../interfaces';
 
 export class CreateUserDto {
   @IsEmail()

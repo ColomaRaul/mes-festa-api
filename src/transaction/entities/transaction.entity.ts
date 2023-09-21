@@ -11,7 +11,9 @@ export class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('uuid')
+  @Column('uuid', {
+    nullable: true,
+  })
   userId: string;
 
   @Column('uuid')
