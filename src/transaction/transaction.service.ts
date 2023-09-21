@@ -30,6 +30,15 @@ export class TransactionService {
     }
   }
 
+  //TODO: Paginate
+  async findAll() {
+    return this.transactionRepository.find({});
+  }
+
+  async findByOrganization(organizationId: string) {
+    return this.transactionRepository.findBy({ organizationId });
+  }
+
   async deleteAllTransactions() {
     const query = this.transactionRepository.createQueryBuilder('transaction');
 
@@ -38,5 +47,12 @@ export class TransactionService {
     } catch (error) {
       throw new InternalServerErrorException('Cant delete all transactions');
     }
+  }
+
+  async findUserTransactionAndOrganization(
+    userId: string,
+    organizationId: string,
+  ) {
+    return this.transactionRepository.findBy({ userId, organizationId });
   }
 }

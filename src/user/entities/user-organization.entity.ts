@@ -35,6 +35,11 @@ export class UserOrganization {
   })
   characteristics?: Characteristic[];
 
+  @Column('bool', {
+    default: false,
+  })
+  isAdmin: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 

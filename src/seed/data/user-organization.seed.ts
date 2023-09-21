@@ -8,6 +8,7 @@ interface SeedUserOrganization {
   memberSince: string;
   isActive: boolean;
   characteristics: Characteristic[];
+  isAdmin: boolean;
 }
 
 export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
@@ -31,6 +32,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'Fiança',
       },
     ],
+    isAdmin: true,
   },
   {
     id: uuid.v4,
@@ -52,6 +54,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'membre',
       },
     ],
+    isAdmin: false,
   },
   {
     id: uuid.v4,
@@ -65,6 +68,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: '21-08-2020 fins 21-08-2025',
       },
     ],
+    isAdmin: false,
   },
   {
     id: uuid.v4,
@@ -78,6 +82,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'ES31312312313123123123',
       },
     ],
+    isAdmin: false,
   },
   {
     id: uuid.v4,
@@ -91,6 +96,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'Membre',
       },
     ],
+    isAdmin: false,
   },
   {
     id: uuid.v4,
@@ -104,6 +110,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'El President',
       },
     ],
+    isAdmin: false,
   },
   {
     id: uuid.v4,
@@ -125,6 +132,7 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'VOCAL 1',
       },
     ],
+    isAdmin: false,
   },
   {
     id: uuid.v4,
@@ -146,5 +154,6 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
         value: 'Fiança',
       },
     ],
+    isAdmin: true,
   },
 ];
