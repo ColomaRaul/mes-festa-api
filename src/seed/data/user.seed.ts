@@ -20,7 +20,7 @@ export const SEED_USER: SeedUser[] = [
     name: 'Raúl',
     surname: 'Coloma Bonifacio',
     isActive: true,
-    roles: ['admin', 'super-admin'],
+    roles: ['admin', 'super-admin', 'user'],
     address: 'Carrer Doctor Fleming, 38-40, 1A, 03560, El Campello, Alacant',
     birthday: '1990-01-18',
     phone: '617179758',

@@ -57,7 +57,6 @@ export const SEED_TRANSACTION: SeedTransaction[] = [
     date: '2023-01-12',
     description: 'Ingreso',
   },
-
   {
     id: uuid.v4,
     userId: null,
@@ -68,5 +67,27 @@ export const SEED_TRANSACTION: SeedTransaction[] = [
     amount: 100,
     date: '2023-01-12',
     description: 'Donació de la Junta de festes',
+  },
+  {
+    id: uuid.v4,
+    userId: '0bb9d441-5426-4c73-b754-57c6a52000b4',
+    userCreatorId: '0bb9d441-5426-4c73-b754-57c6a52000b4',
+    organizationId: 'f0e3df76-c09e-4505-9d3d-cf112b6cca2e',
+    typeTransaction: 'PROFIT',
+    typeFinancial: 'Transferencia bancaria',
+    amount: 15000,
+    date: '2022-12-12',
+    description: 'Ingres ralla',
+  },
+  {
+    id: uuid.v4,
+    userId: '0bb9d441-5426-4c73-b754-57c6a52000b4',
+    userCreatorId: '0bb9d441-5426-4c73-b754-57c6a52000b4',
+    organizationId: 'f0e3df76-c09e-4505-9d3d-cf112b6cca2e',
+    typeTransaction: 'PROFIT',
+    typeFinancial: 'Transferencia bancaria',
+    amount: 15000,
+    date: '2023-01-12',
+    description: 'Ingres ralla',
   },
 ];
