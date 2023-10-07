@@ -1,4 +1,4 @@
-.PHONY: up-db stop-db dev
+.PHONY: up-db stop-db dev up
 
 up-db:
 	docker-compose -f docker-compose.yml up -d
@@ -11,3 +11,6 @@ dev:
 
 install:
 	yarn install
+
+up:
+	yarn start:dev

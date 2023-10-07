@@ -1,9 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get, Res } from '@nestjs/common';
 import { CreateUserDto, LoginUserDto } from 'src/user/dtos';
 import { UserService } from './user.service';
 import { CreateUserOrganizationDto } from './dtos/create-user-organization.dto';
 import { Auth } from './decorators';
 import { ValidRoles } from './interfaces';
+import { Response } from 'express';
 
 @Controller('user')
 export class UserController {
@@ -15,13 +16,30 @@ export class UserController {
   }
 
   @Post('login')
-  login(@Body() loginUserDto: LoginUserDto) {
-    return this.userService.login(loginUserDto);
+  async login(
+    @Body() loginUserDto: LoginUserDto,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const { access_token } = await this.userService.login(loginUserDto);
+
+    response.cookie('access_token', access_token, { httpOnly: true });
+
+    return { message: 'Success' };
   }
 
   @Post('organization')
   @Auth(ValidRoles.admin)
   add(@Body() createUserOrganization: CreateUserOrganizationDto) {
     return this.userService.addUserOrganization(createUserOrganization);
+  }
+
+  @Post('logout')
+  async logout(@Res({ passthrough: true }) response: Response) {
+    response.clearCookie('access_token');
+  }
+
+  @Get('test')
+  test() {
+    return { message: 'is a test' };
   }
 }

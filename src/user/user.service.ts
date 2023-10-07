@@ -41,7 +41,7 @@ export class UserService {
 
       return {
         ...user,
-        token: this.getJwtToken({ id: user.id }),
+        access_token: this.getJwtToken({ id: user.id }),
       };
     } catch (error) {
       this.handleDBErrors(error);
@@ -62,8 +62,7 @@ export class UserService {
       throw new UnauthorizedException('Credentials are not valid (password)');
 
     return {
-      ...user,
-      token: this.getJwtToken({ id: user.id }),
+      access_token: this.getJwtToken({ id: user.id }),
     };
   }
 
