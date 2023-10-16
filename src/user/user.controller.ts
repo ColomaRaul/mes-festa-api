@@ -21,8 +21,12 @@ export class UserController {
     @Res({ passthrough: true }) response: Response,
   ) {
     const { access_token } = await this.userService.login(loginUserDto);
+    const twoHoursFromNow = new Date(Date.now() + 2 * 60 * 60 * 1000);
 
-    response.cookie('access_token', access_token, { httpOnly: true });
+    response.cookie('access_token', access_token, {
+      httpOnly: true,
+      expires: twoHoursFromNow,
+    });
 
     return { message: 'Success' };
   }
