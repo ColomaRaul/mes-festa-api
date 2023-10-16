@@ -53,6 +53,9 @@ export class TransactionService {
     userId: string,
     organizationId: string,
   ) {
-    return this.transactionRepository.findBy({ userId, organizationId });
+    return this.transactionRepository.find({
+      where: { userId: userId, organizationId: organizationId },
+      order: { date: 'ASC' },
+    });
   }
 }
