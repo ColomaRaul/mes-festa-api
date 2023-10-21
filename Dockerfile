@@ -1,4 +1,4 @@
-FROM node:18-alpine3.17
+FROM node:19-alpine3.18
 
 # Set working directory
 RUN mkdir -p /var/www/app
@@ -18,6 +18,6 @@ USER mesfesta
 # Limpiar el caché
 RUN yarn cache clean --force
 
-EXPOSE 3000
+EXPOSE 4000
 
 CMD [ "yarn","start" ]
