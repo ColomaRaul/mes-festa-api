@@ -3,10 +3,13 @@ import {
   CreateDateColumn,
   Entity,
   Index,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Characteristic } from '../interfaces';
+import { Organization } from '../../organization/entities/organization.entity';
 
 @Entity('user-organization')
 @Index(['userId', 'organizationId'], { unique: true })
@@ -45,4 +48,10 @@ export class UserOrganization {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @ManyToOne(
+    () => Organization,
+    (organization) => organization.userOrganizations,
+  )
+  organization: Organization;
 }

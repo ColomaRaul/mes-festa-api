@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Organization } from './entities/organization.entity';
 import { CreateOrganizationDto } from './dtos/create-organization.dto';
+import { User } from '../user/entities/user.entity';
 
 @Injectable()
 export class OrganizationService {
@@ -27,6 +28,21 @@ export class OrganizationService {
     } catch (error) {
       this.logger.error(error);
       throw new InternalServerErrorException('HELP!');
+    }
+  }
+
+  async findByUser(user: User) {
+    try {
+      return this.organizationRepository
+        .createQueryBuilder('organization')
+        .leftJoinAndSelect('organization.userOrganizations', 'userOrganization')
+        .where('userOrganization.userId = :userId', { userId: user.id })
+        .getRawMany();
+    } catch (error) {
+      this.logger.error(error);
+      throw new InternalServerErrorException(
+        'Error to find organization by user',
+      );
     }
   }
 
