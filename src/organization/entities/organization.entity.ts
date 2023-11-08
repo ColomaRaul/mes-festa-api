@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { UserOrganization } from '../../user/entities/user-organization.entity';
 
 @Entity()
 export class Organization {
@@ -24,4 +27,10 @@ export class Organization {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(
+    () => UserOrganization,
+    (userOrganization) => userOrganization.organization,
+  )
+  userOrganizations: UserOrganization[];
 }

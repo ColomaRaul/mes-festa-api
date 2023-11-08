@@ -16,7 +16,7 @@ export class TransactionController {
   }
 
   @Get('organization')
-  @Auth(ValidRoles.admin)
+  @Auth(ValidRoles.admin, ValidRoles.superAdmin)
   findByOrganization(
     @GetUser() user: User,
     @Query('organizationId') organizationId?: string,
@@ -25,7 +25,7 @@ export class TransactionController {
   }
 
   @Get('user-organization/:organizationId')
-  @Auth(ValidRoles.user)
+  @Auth(ValidRoles.user, ValidRoles.admin, ValidRoles.user)
   findUserTransactionAndOrganization(
     @GetUser() user: User,
     @Param('organizationId') organizationId: string,
