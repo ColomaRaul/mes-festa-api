@@ -20,19 +20,25 @@ export class UserController {
     @Body() loginUserDto: LoginUserDto,
     @Res({ passthrough: true }) response: Response,
   ) {
-    const { access_token } = await this.userService.login(loginUserDto);
+    const loginUser = await this.userService.login(loginUserDto);
     const twoHoursFromNow = new Date(Date.now() + 2 * 60 * 60 * 1000);
 
-    response.cookie('access_token', access_token, {
+    response.cookie('access_token', loginUser.access_token, {
       httpOnly: true,
       expires: twoHoursFromNow,
     });
 
-    return { message: 'Success' };
+    return {
+      id: loginUser.id,
+      email: loginUser.email,
+      name: loginUser.name,
+      roles: loginUser.roles,
+      access_token: loginUser.access_token,
+    };
   }
 
   @Post('organization')
-  @Auth(ValidRoles.admin)
+  @Auth(ValidRoles.superAdmin)
   add(@Body() createUserOrganization: CreateUserOrganizationDto) {
     return this.userService.addUserOrganization(createUserOrganization);
   }
@@ -40,10 +46,5 @@ export class UserController {
   @Post('logout')
   async logout(@Res({ passthrough: true }) response: Response) {
     response.clearCookie('access_token');
-  }
-
-  @Get('test')
-  test() {
-    return { message: 'is a test' };
   }
 }

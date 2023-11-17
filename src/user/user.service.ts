@@ -41,7 +41,12 @@ export class UserService {
 
       return {
         ...user,
-        access_token: this.getJwtToken({ id: user.id }),
+        access_token: this.getJwtToken({
+          id: user.id,
+          email: user.email,
+          name: user.fullName(),
+          roles: user.roles,
+        }),
       };
     } catch (error) {
       this.handleDBErrors(error);
@@ -53,7 +58,14 @@ export class UserService {
 
     const user = await this.userRepository.findOne({
       where: { email },
-      select: { email: true, password: true, id: true },
+      select: {
+        email: true,
+        password: true,
+        id: true,
+        roles: true,
+        name: true,
+        surname: true,
+      },
     });
 
     if (!user) throw new UnauthorizedException('Credentials are not valid');
@@ -62,7 +74,16 @@ export class UserService {
       throw new UnauthorizedException('Credentials are not valid (password)');
 
     return {
-      access_token: this.getJwtToken({ id: user.id }),
+      access_token: this.getJwtToken({
+        id: user.id,
+        email: user.email,
+        name: user.fullName(),
+        roles: user.roles,
+      }),
+      id: user.id,
+      email: user.email,
+      name: user.fullName(),
+      roles: user.roles,
     };
   }
 
