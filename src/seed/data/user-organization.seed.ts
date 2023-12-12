@@ -156,4 +156,270 @@ export const SEED_USER_ORGANIZATION: SeedUserOrganization[] = [
     ],
     isAdmin: true,
   },
+  {
+    id: uuid.v4,
+    userId: '0bb9d441-5426-4c73-b754-57c6a52000b4',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: true,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3949',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3950',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3951',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3952',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3953',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3954',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3955',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3956',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3957',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3958',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3959',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3960',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3961',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3962',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3963',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3964',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3965',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
+  {
+    id: uuid.v4,
+    userId: 'b49d0840-ff97-4745-b96f-22c094cf3966',
+    organizationId: '668dab12-709a-4de3-9696-badea7fc09db',
+    memberSince: '2018-08-20',
+    isActive: true,
+    characteristics: [
+      {
+        key: 'Distinció',
+        value: 'membre honorífic escuadra de negres 2024',
+      },
+    ],
+    isAdmin: false,
+  },
 ];

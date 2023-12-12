@@ -90,4 +90,15 @@ export const SEED_TRANSACTION: SeedTransaction[] = [
     date: '2023-01-12',
     description: 'Ingres ralla',
   },
+  {
+    id: uuid.v4,
+    userId: '34ea0220-9ad4-4b49-8248-45f77c631451',
+    userCreatorId: '0bb9d441-5426-4c73-b754-57c6a52000b4',
+    organizationId: 'f0e3df76-c09e-4505-9d3d-cf112b6cca2e',
+    typeTransaction: 'EXPENSE',
+    typeFinancial: 'Transferencia bancaria',
+    amount: 79000,
+    date: '2023-08-25',
+    description: 'Fulla 2023',
+  },
 ];

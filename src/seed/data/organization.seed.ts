@@ -25,4 +25,9 @@ export const SEED_ORGANIZATION: SeedOrganization[] = [
     name: 'Contrabando',
     type: 'Filà',
   },
+  {
+    id: '668dab12-709a-4de3-9696-badea7fc09db',
+    name: 'Escuadra Negres 2024',
+    type: 'Filà',
+  },
 ];
