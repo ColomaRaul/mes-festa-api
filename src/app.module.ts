@@ -7,6 +7,7 @@ import { OrganizationModule } from './organization/organization.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { SeedModule } from './seed/seed.module';
 import * as process from 'process';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import * as process from 'process';
       synchronize: true,
       namingStrategy: new SnakeNamingStrategy(),
     }),
+    HealthModule,
     UserModule,
     OrganizationModule,
     TransactionModule,
