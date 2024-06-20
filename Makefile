@@ -1,22 +1,22 @@
 .PHONY: up-db stop-db dev up start stop
 
 up-db:
-	docker-compose -f docker-compose.yml up -d
+	cd .docker && docker-compose -f docker-compose.yml up -d
 
 stop-db:
-	docker-compose -f docker-compose.yml stop
-
-dev:
-	yarn start:dev
+	cd .docker && docker-compose -f docker-compose.yml stop
 
 install:
-	yarn install
+	npm install
 
 up:
-	yarn start:dev
+	npm run start:dev
 
 start:
-	docker-compose -f docker-compose.yml up -d
+	cd .docker && docker-compose -f docker-compose.yml up -d
 
 stop:
-	docker-compose -f docker-compose.yml stop
+	cd .docker && docker-compose -f docker-compose.yml stop
+
+build:
+	cd .docker && docker-compose -f docker-compose.yml build

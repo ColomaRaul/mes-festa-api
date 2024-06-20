@@ -1,0 +1,40 @@
+services:
+  nestjs_api:
+    build:
+      context: ..
+      dockerfile: .docker/node/Dockerfile
+    container_name: mes_festa_api_node
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    environment:
+      - PORT=${API_PORT}
+      - NODE_ENV=development
+    volumes:
+      - ../src:/usr/src/app/src
+    networks:
+      - mes_festa_api_network
+    depends_on:
+      - postgresql
+  postgresql:
+    build:
+      context: ..
+      dockerfile: .docker/postgresql/Dockerfile
+    container_name: mes_festa_api_db
+    restart: always
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_PORT: ${DB_PORT}
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - mes_festa_api_network
+
+networks:
+  mes_festa_api_network:
+
+volumes:
+  postgresql_data:
