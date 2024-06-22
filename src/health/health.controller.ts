@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Res } from "@nestjs/common";
 import { HealthService } from "./health.service";
 
 @Controller('/health')
@@ -7,6 +7,6 @@ export class HealthController {
 
     @Get('/')
     health() {
-        return this.healthService.testConnection
+        return this.healthService.testConnection()
     }
 }
